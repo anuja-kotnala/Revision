@@ -1,4 +1,3 @@
-console.log("hello bitch");
 let humanScore=0;
 let compScore=0;
 
