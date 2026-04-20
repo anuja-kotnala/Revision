@@ -1,4 +1,34 @@
-console.log("hello bitch");
+console.log("Script loaded successfully!");
+const rockBtn=document.getElementById('rock');
+const pprBtn=document.getElementById('paper');
+const sciBtn=document.getElementById('scissor');
+
+rockBtn.addEventListener('click',() =>{
+    const compChoice=getCompChoice();
+    playRound("rock",compChoice);
+    show("rock",compChoice);
+});
+
+pprBtn.addEventListener('click',() =>{
+    const compChoice=getCompChoice();
+    playRound("paper",compChoice);
+    show("paper",compChoice);
+});
+
+sciBtn.addEventListener('click',() =>{
+    const compChoice=getCompChoice();
+    playRound("scissor",compChoice);
+    show("scissor",compChoice);
+});
+
+function show(human,comp){
+    console.log("Human chose: "+human);
+    console.log("Comp chose: "+comp);
+    console.log("current score: "+ `Human: ${humanScore} `+ `Computer: ${compScore}`);
+        // console.log("Calling winner function now...");
+    winner(humanScore,compScore);
+}
+
 let humanScore=0;
 let compScore=0;
 
@@ -16,10 +46,10 @@ function getCompChoice(){
     //2->scissor
 }
 
-function getHumanChoice(){
-    let b= prompt("your choice: ");
-    return b;
-}
+// function getHumanChoice(){
+//     let b= prompt("your choice: ");
+//     return b;
+// }
 
 // const compChoice=getCompChoice();
 // // console.log(compChoice);
@@ -46,16 +76,17 @@ function playRound(humanChoice,compChoice){
         else compScore++;
     }
 
+
 }
 
-for(let i=0;i<5;i++){
-    const compChoice=getCompChoice();
-    const humanChoice=getHumanChoice().toLowerCase();
-    playRound(humanChoice,compChoice);
-    console.log("human chose: "+humanChoice);
-    console.log("comp chose: "+compChoice);
-    console.log("current score: "+ `human: ${humanScore} `+ `computer: ${compScore}`);
-}
+// for(let i=0;i<5;i++){
+//     const compChoice=getCompChoice();
+//     const humanChoice=getHumanChoice().toLowerCase();
+//     playRound(humanChoice,compChoice);
+//     console.log("human chose: "+humanChoice);
+//     console.log("comp chose: "+compChoice);
+//     console.log("current score: "+ `human: ${humanScore} `+ `computer: ${compScore}`);
+// }
 
 
 
@@ -65,4 +96,3 @@ function winner(humanScore,compScore){
     else console.log("it is a tie");
 }
 
-winner(humanScore,compScore);
